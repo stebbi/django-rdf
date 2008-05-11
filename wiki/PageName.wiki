@@ -1,0 +1,15 @@
+#summary Comparing Django-RDF with RDFLib
+#labels rdflib,related
+
+Here are some notes about comparing Django-RDF with RDFLib. 
+
+RDFLib is at 
+
+  * http://rdflib.net/
+  * http://code.google.com/p/rdflib/
+
+RDFLib doesn't integrate with the Django ORM, models, query sets, etc.
+
+It might be nice to try to reuse the RDFLib parser and serializer collection?
+
+Write more later...
