@@ -1,0 +1,12 @@
+#summary A roadmap of the Django-RDF codebase
+
+Super-condensed...
+
+  * rdf is the reusable Django app
+    * management contains the syncvb command
+    * models is the core
+    * query is the SPARQL stuff
+    * serializers is the RDF/XML stuff
+  * examples contains a couple of Django projects using rdf
+    * auth uses django.contrib.auth
+    * simple is good to start with
