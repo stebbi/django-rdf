@@ -1,7 +1,7 @@
 #summary Frequenty Asked Questions
 #labels faq,Featured
 
-*Comparing with other RDF toolkits*
+*How does Django-RDF compare with other RDF toolkits?*
 
   * Comparing with [RDFLib RDFLib]
   * Comparing with [Redland Redland]
