@@ -3,4 +3,4 @@
 
 Django-RDF is copyright 2008 Stefán B Sigurðsson.
 
-Django-RDF is distributed under the BSD License, like Dango. The ontology files are open source or in the public domain - see the included README file in the tarball for more information. PLY is distributed under the Lesser GPL. 
+Django-RDF is distributed under the BSD License, like Django. The ontology files are open source or in the public domain - see the included README file in the tarball for more information. PLY is distributed under the Lesser GPL. 
