@@ -1,7 +1,7 @@
 #summary Frequenty Asked Questions
 #labels faq,Featured
 
-= Comparing with other RDF toolkits =
+=== Comparing with other RDF toolkits ===
 
   * Comparing with RDFLib
   * Comparing with Redlang
