@@ -1,0 +1,11 @@
+The .rdfxml files included in ontology.tar.gz are all based on freely available 
+downloads. They are believed to be open source and distributed with a license 
+to modify and redistribute.
+
+The files have been hand-edited to resolve formatting inconsistencies, mostly 
+in the use of XML namespaces. No significant changes have been made to the 
+included RDF resources and no resources have been added or removed. 
+
+Insert additional notes on copyright, licensing and source URL for each file 
+here... 
+

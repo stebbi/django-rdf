@@ -1,0 +1,25 @@
+This is a simple example project, using a sqlite3 database. 
+
+If you don't have sqlite you can install using macports on the Mac:
+
+    sudo port install py25-sqlite3
+
+Or similarly on any Debian-flavored Linux box:
+
+    sudo apt-get install py25-sqlite3
+
+Then, set up your shell environment:
+
+    cd <...>/examples/simple
+    source .bashrc
+
+First try running the tests - there should be no failures or errors:
+
+    ./manage.py test
+
+Then boot the devserver:
+
+    ./manage.py runserver
+
+You should be up and running. Just point a browser at http://localhost:8000/.
+

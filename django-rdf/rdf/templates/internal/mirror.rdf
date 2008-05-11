@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#" 
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:drdfs="http://.../django/schema#"
+   xmlns:{{ ontology_code }}="{{ ontology_uri }}">
+
+ <owl:Ontology rdf:about="{{ ontology_uri }}">
+   <dc:title>{{ ontology_title }}</dc:title>
+   <dc:description>{{ ontology_description }}</dc:description>
+ </owl:Ontology>
+{% for n, c in concepts.items %}
+<rdfs:Class rdf:about="{{ ontology_uri }}{{ c.name }}">
+  <rdfs:isDefinedBy rdf:resource="{{ ontology_uri }}"/>
+  <rdfs:label>{{ c.title }}</rdfs:label>
+  <rdfs:comment>{{ c.description }}</rdfs:comment>
+  <rdfs:subClassOf rdf:resource="http://.../django/schema#Resource"/>
+  <drdfs:model>{{ c.model_name }}</drdfs:model>
+</rdfs:Class>
+{% endfor %}{% for n, p in predicates.items %}
+<rdf:Property rdf:about="{{ ontology_uri }}{{ p.name }}">
+  <rdfs:isDefinedBy rdf:resource="{{ ontology_uri }}"/>
+  <rdfs:label>{{ p.title }}</rdfs:label>
+  <rdfs:comment>{{ p.description }}</rdfs:comment>
+  <rdfs:domain rdf:resource="{{ p.domain.uri }}"/>
+  <rdfs:range rdf:resource="{{ p.range.uri }}"/>
+  <drdfs:field>{{ p.field_name }}</drdfs:field>
+  <drdfs:cardinality>{{ p.cardinality.domain }}:{{ p.cardinality.range}}</drdfs:cardinality>
+</rdf:Property>
+{% endfor %}
+<rdf:Description rdf:about="{{ ontology_uri }}">
+</rdf:Description>
+
+</rdf:RDF>
