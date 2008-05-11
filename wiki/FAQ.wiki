@@ -4,5 +4,5 @@
 === Comparing with other RDF toolkits ===
 
   * Comparing with [RDFLib RDFLib]
-  * Comparing with Redlang
-  * Comparing with RDFAlchemy
+  * Comparing with [Redland Redland]
+  * Comparing with [RDFAlchemy RDFAlchemy]
