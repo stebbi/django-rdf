@@ -3,7 +3,7 @@
 
 *What is the current development status?*
 
-Only fit for the brave (and foolhardy :)
+Only fit for the brave (or foolhardy :)
 
 *How does Django-RDF compare with other RDF toolkits?*
 
