@@ -1,0 +1,23 @@
+You're almost done installing Django-RDF. You need three more steps:
+
+1) Put this directory on the Python path.
+
+   Or, if you prefer, you can create an rdf.pth file in your site-packages dir.
+   The file should contain the absolute path to this directory, nothing more.
+
+2) Add the Django-RDF app to INSTALLED_APPS in settings.py, and add its templates 
+   directory to TEMPLATE_DIRS.
+
+3) Run the syncvb command to set up your vocabulary.
+
+   cd <your project directory>
+   ./manage.py syncvb
+
+Check the online instructions for more details:
+
+   http://code.google.com/p/django-rdf/
+
+And, join the discussion group to keep tabs:
+
+   http://groups.google.com/group/django-rdf/
+

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#" 
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:drdfs="http://.../django/schema#">{% for r in resources %}
+    <rdfs:Resource rdf:about="{{ r.uri }}">{% for predicate, value in r.items %}
+        <{{ predicate.mangled }}>{{ value|default_if_none:"" }}</{{ predicate.mangled }}>{% endfor %}
+    </rdfs:Resource>{% endfor %}
+    <rdf:Description>{% if offset %}
+        <DRDFS__offset>{{ offset }}</DRDFS__offset>{% endif %}{% if limit %} 
+        <DRDFS__limit>{{ limit }}</DRDFS__limit>{% endif %}{% if count %}
+        <DRDFS__count>{{ count }}</DRDFS__count>{% endif %}
+    </rdf:Description>
+</rdf:RDF>
