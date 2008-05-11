@@ -1,6 +1,10 @@
 #summary Frequenty Asked Questions
 #labels faq,Featured
 
+*What is the current development status?*
+
+Only fit for the brave (and foolhardy :)
+
 *How does Django-RDF compare with other RDF toolkits?*
 
   * Comparing with [RDFLib RDFLib]
