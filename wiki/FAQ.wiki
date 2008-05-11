@@ -3,6 +3,6 @@
 
 === Comparing with other RDF toolkits ===
 
-  * Comparing with RDFLib
+  * Comparing with [RDFLib RDFLib]
   * Comparing with Redlang
   * Comparing with RDFAlchemy
