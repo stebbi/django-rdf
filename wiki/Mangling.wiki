@@ -1,6 +1,6 @@
 #summary Why mangle resource identifiers?
 
-Mangling is a nifty little tool that let's you map RDF statements to Python object fields. 
+Mangling is a nifty little tool that let's you map RDF statements to Python object fields.  It gets around a simple issue: A URI is not a valid Python variable name, but a mangled URI is. 
 
 Let's take an example. Here is a namespace for Google Code projects, and a resource representing the Django-RDF project:
 {{{
@@ -30,6 +30,6 @@ The mangling algorithm is simple: just concatenate the mangled namespace code wi
 
 The namespace code mangling algorithm is equally simple: cast to upper case and replace dashes with underscores. 
 
-Mangling is guaranteed to produce identifiers that are valid Python names. 
+Mangling is guaranteed to produce identifiers that are valid Python identifiers, as long as you stick to resource names that are valid Python identifiers. 
 
 Mangling produces unique identifers because the resource name is guaranteed to be unique within the namespace, and Django-RDF requires namespace codes to be unique. See notes about [NamespaceCodes namespace codes].
