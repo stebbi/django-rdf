@@ -62,20 +62,18 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'rdf',
-
 )
 
 SERIALIZATION_MODULES = {
     'rdfxml': 'rdf.serializers.rdfxml',
     'xsd': 'rdf.serializers.xsd',
 }
-
-
 
 # Copyright (c) 2008, Stefan B Sigurdsson
 # All rights reserved.

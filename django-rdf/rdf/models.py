@@ -198,23 +198,33 @@ dispatcher.connect(update_namespace_permissions, sender=Namespace, signal=Namesp
 
 
 class Ontology(Model):
+    """
+    Represents an OWL ontology, such as the OWL ontology itself and derived ontologies 
+    including the Dublin Core ontologies etc.
+    """
 
+    # An ontology has an associated resource.
     resource = ForeignKey(Resource, unique=True)
-    
+   
     internal = BooleanField(default=False)
     
     title = CharField(max_length=127, db_index=True)
     description = TextField()
 
+    # Creation timestamp.
     issued = DateTimeField(default=datetime.now, db_index=True)
     
     objects = OntologyManager()
     
     class Admin:
-        list_display = ('code', 'namespace', 'title', 'description')
-        ordering = ('code',)
+        list_display = ('title', 'namespace', 'description')
+        ordering = ('title',)
         search_fields = ('title', 'description')
-        
+       
+    class Meta:
+        verbose_name = 'Ontology'
+        verbose_name_plural = 'Ontologies'
+
     def __unicode__(self):
         return self.namespace.code
     
@@ -244,15 +254,24 @@ class Concept(Model):
     Materializes resources of the RDFS Class type.
     """
 
+    # Each concept object is a resource in its own right. 
+    # This is implemented using aggregation, not model inheritance
     resource = ForeignKey(Resource, unique=True, related_name='resource_type', db_index=True)
+
+    # Support for multiple inheritance for concepts.
+    # A concept object inherits its bases
     bases = ManyToManyField('self', symmetrical=False, related_name='derived')
 
     title = CharField(max_length=127, db_index=True)
     description = TextField()
 
-    model_name = CharField(max_length=63, db_index=True) # Absolute name of a real model.
+    # Absolute name of a model
+    model_name = CharField(max_length=63, db_index=True) 
+
+    # True iff the object is a literal (string, number...), else False
     literal = BooleanField(default=False)
 
+    # Creation timestamp
     issued = DateTimeField(default=datetime.now, db_index=True)
 
     objects = ConceptManager()
@@ -260,10 +279,10 @@ class Concept(Model):
     post_save = object()
 
     class Admin:
-        list_display = ('name', 'namespace', 'uri', 'title', 'model_name',)
+        list_display = ('title', 'namespace', 'name', 'uri', 'model_name',)
         list_filter = ('model_name',)
-        ordering = ('name',)
-        search_fields = ('resource__namespace__code', 'name')
+        ordering = ('title',)
+        search_fields = ('title',)
 
     def __init__(self, *args, **kwargs):
         if not kwargs.has_key('model_name'):
@@ -544,8 +563,9 @@ class Predicate(Model):
     post_save = object()
 
     class Admin: # IGNORE:W0232
-        list_display = ('name', 'namespace', 'domain', 'range', 'title', 'issued',)
+        list_display = ('title', 'namespace', 'name', 'domain', 'range', 'issued',)
         list_filter = ('domain', 'range', 'issued',)
+        ordering = ('title',)
         search_fields = ('title', 'description')
 
     def __unicode__(self):

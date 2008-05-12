@@ -5,7 +5,7 @@ urlpatterns = patterns('',
     # (r'^simple/', include('simple.foo.urls')),
 
     # Uncomment this for admin:
-#     (r'^admin/', include('django.contrib.admin.urls')),
+    (r'^admin/', include('django.contrib.admin.urls')),
 )
 
 # Copyright (c) 2008, Stefan B Sigurdsson

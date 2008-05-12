@@ -1,17 +1,48 @@
-This is a simple example project, using a sqlite3 database. 
+This directory contains a simple example project, using a sqlite3 database. 
 
-If you don't have sqlite you can install using macports on the Mac:
+It doesn't really do anything except let you browse the models that implement 
+the triple store, using the admin site.
 
-    sudo port install py25-sqlite3
 
-Or similarly on any Debian-flavored Linux box:
+SHELL ENVIRONMENT
 
-    sudo apt-get install py25-sqlite3
+You can set up sqlite3 and PLY like so, on Mac OS X with Macports:
 
-Then, set up your shell environment:
+    sudo port install py25-sqlite3 
+    sudo port install py25-ply
 
-    cd <...>/examples/simple
+On Debian-variants (incl. Ubuntu), use apt-get not port, and find the right 
+package names using aptitude search. 
+
+Then, set up your shell environment (again assuming Mac OS X or a Linux box):
+
+    cd <...>/django-rdf/examples/simple
     source .bashrc
+    cd lib
+    rm django
+    ln -s <path-to-django>/django
+
+The symbolic link is just there to make sure Django is on the PYTHONPATH. You 
+probably already have it somewhere else, or installed into site-packages. 
+
+(Instructions for Windows hosts would be appreciated - anyone?)
+
+
+ONTOLOGY
+
+Now you need to get the ontology files installed. This is simple:
+
+    cd <...>/django-rdf/examples/simple/lib/rdf/ontology/
+    curl http://django-rdf.googlecode.com/files/ontology-0.1.tar.gz | tar zx
+
+Don't forget to pipe to tar, otherwise your screen just fills with garbage.
+
+And, this step actually configures the RDF app itself, not just the simple 
+example project, because lib/rdf is a symlink to the app (if things start 
+going wrong for you, you might check that this symlink is behaving right).
+
+
+TEST DRIVE
 
 First try running the tests - there should be no failures or errors:
 
@@ -19,7 +50,11 @@ First try running the tests - there should be no failures or errors:
 
 Then boot the devserver:
 
+    ./manage.py syncdb
     ./manage.py runserver
 
-You should be up and running. Just point a browser at http://localhost:8000/.
+You should be up and running. Just point a browser at http://localhost:8000/admin.
+
+You won't have to repeat the setup steps for the other examples. Try the auth 
+example next, perhaps? 
 
