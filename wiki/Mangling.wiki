@@ -26,3 +26,10 @@ The field name for the project downloads is derived from the downloads predicate
 'CODE_S__downloads'
 }}}
  
+The mangling algorithm is simple: just concatenate the mangled namespace code with the predicate name. 
+
+The namespace code mangling algorithm is equally simple: cast to upper case and replace dashes with underscores. 
+
+Mangling is guaranteed to produce identifiers that are valid Python names. 
+
+Mangling produces unique identifers because the resource name is guaranteed to be unique within the namespace, and Django-RDF requires namespace codes to be unique. See notes about [NamespaceCodes namespace codes].
