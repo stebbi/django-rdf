@@ -1,0 +1,28 @@
+#summary Why mangle resource identifiers?
+
+Mangling is a nifty little tool that let's you map RDF statements to Python object fields. 
+
+Let's take an example. Here is a namespace for Google Code projects, and a resource representing the Django-RDF project:
+{{{
+    CODE = create(Namespace, 'code', 'http://code.google.com/p/')
+    drdf = create(Resource, CODE, 'django-rdf', get(Namespace, 'code-s')['Project'])
+}}}
+
+The ontology containing the 'Project' concept uses the 'code-s' namespace and belongs to some ontology. 
+
+Let's say that ontology also has a predicate called downloads. Each project object has zero or more associated files in its downloads section, and this predicate can represent that sort of relationship. 
+
+Then, here is how we might iterate through the downloads for the Django-RDF project:
+{{{
+    for download in drdf.CODE_S__downloads:
+        ...
+}}}
+
+The field 'CODE_S__downloads' is derived from the downloads predicate. In a Python shell, 
+{{{
+>>> ns = get(Namespace, 'code-s')
+>>> downloads = ns['downloads']
+>>> downloads.mangled
+'CODE_S__downloads'
+}}}
+ 
