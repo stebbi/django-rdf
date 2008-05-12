@@ -18,7 +18,7 @@ Then, here is how we might iterate through the downloads for the Django-RDF proj
         ...
 }}}
 
-The field 'CODE_S__downloads' is derived from the downloads predicate. In a Python shell, 
+The field name for the project downloads is derived from the downloads predicate. In a Python shell, 
 {{{
 >>> ns = get(Namespace, 'code-s')
 >>> downloads = ns['downloads']
