@@ -3,10 +3,10 @@
 
 No modification to any existing code is required, and minimal configuration is necessary - the default behavior is sufficient for most apps, and can be enabled by
 
-   1. Placing the Django-RDF app source directory in the PYTHON_PATH
-   2. Expanding the ontology tarball into the Django-RDF/rdf/ontology/ directory
-   3. Adding INSTALLED_APPS, TEMPLATE_DIRS and SERIALIZATION_MODULES entries to settings.py
-   4. (Re)Running syncdb to generate the database schema elements for the RDF models
-   5. Running the "syncvb" command, to generate an RDF vocabulary from existing models 
+  # Placing the Django-RDF app source directory in the PYTHON_PATH
+  # Expanding the ontology tarball into the Django-RDF/rdf/ontology/ directory
+  # Adding INSTALLED_APPS, TEMPLATE_DIRS and SERIALIZATION_MODULES entries to settings.py
+  # (Re)Running syncdb to generate the database schema elements for the RDF models
+  # Running the "syncvb" command, to generate an RDF vocabulary from existing models 
 
 Syncvb will print a code snippet that can be pasted into settings.py if the SERIALIZATION_MODULES are missing. 
