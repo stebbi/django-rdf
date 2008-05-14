@@ -1,6 +1,6 @@
 # Django settings for simple project.
 
-PROJECT_ROOT = '/Users/stebbi/Projects/Django-RDF/examples/simple/'
+PROJECT_ROOT = '/Users/stebbi/Projects/Django-RDF/trunk/django-rdf/examples/simple/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -58,7 +58,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    PROJECT_ROOT + '../../rdf/templates'
+    PROJECT_ROOT + 'lib/rdf/templates'
 )
 
 INSTALLED_APPS = (

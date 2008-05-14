@@ -1,6 +1,6 @@
 # Django settings for auth sample.
 
-PROJECT_ROOT = '/Users/stebbi/Projects/Django-RDF/examples/auth/'
+PROJECT_ROOT = '/Users/stebbi/Projects/Django-RDF/trunk/django-rdf/examples/auth/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -58,24 +58,22 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    PROJECT_ROOT + '../../rdf/templates'
+    PROJECT_ROOT + 'lib/rdf/templates'
 )
 
 INSTALLED_APPS = (
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'rdf',
-
 )
 
 SERIALIZATION_MODULES = {
     'rdfxml': 'rdf.serializers.rdfxml',
     'xsd': 'rdf.serializers.xsd',
 }
-
-
 
 # Copyright (c) 2008, Stefan B Sigurdsson
 # All rights reserved.

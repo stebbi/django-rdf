@@ -1,0 +1,3 @@
+PROJECT_ROOT=`pwd`
+export PYTHONPATH=$PROJECT_ROOT/..:$PROJECT_ROOT/lib
+export DJANGO_SETTINGS_MODULE=simple.settings
