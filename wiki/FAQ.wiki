@@ -18,3 +18,7 @@ On its way - all the sample code I have is wrapped up in projects I can't distri
   * Comparing with [RDFLib RDFLib]
   * Comparing with [Redland Redland]
   * Comparing with [RDFAlchemy RDFAlchemy]
+
+* Why not just use (RDFLib | Redland | RDFAlchemy)
+
+Django-RDF is intended as an RDF layer on top of the Django ORM. It lets you store data in Django models and construct web pages using views and templates, like you're used to. Then it adds a SPARQL query engine and RDF/XML serialization primitives on top. 
