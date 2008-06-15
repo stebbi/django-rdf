@@ -7,7 +7,7 @@ Only fit for the brave (or foolhardy :)
 
 *Where is the source code repository?*
 
-It will be here in another couple of days. 
+At http://code.google.com/p/django-rdf/source/browse.
 
 *Where is the sample code?*
 
