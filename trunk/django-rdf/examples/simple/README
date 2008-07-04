@@ -21,9 +21,12 @@ Then, set up your shell environment (again assuming Mac OS X or a Linux box):
     cd lib
     rm django
     ln -s <path-to-django>/django
+    ln -s ../../../rdf
 
-The symbolic link is just there to make sure Django is on the PYTHONPATH. You 
-probably already have it somewhere else, or installed into site-packages. 
+The django symbolic link is just there to make sure Django is on the PYTHONPATH. 
+You probably already have it somewhere else, or installed into site-packages. 
+
+The rdf symbolic link is necessary for the sample project to find the rdf app.
 
 (Instructions for Windows hosts would be appreciated - anyone?)
 
