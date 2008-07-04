@@ -1,5 +1,5 @@
 from django.db import connection
-from django.db.models.query import QuerySet, EmptyResultSet, GET_ITERATOR_CHUNK_SIZE
+from django.db.models.query import QuerySet, EmptyResultSet, CHUNK_SIZE
 
 from rdf.query.compiler import Compiler
 
