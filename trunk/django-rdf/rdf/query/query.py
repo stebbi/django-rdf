@@ -74,7 +74,7 @@ class SPARQLQuerySet(QuerySet):
         predicates = self._cached_query.mangled_predicates \
             if self._mangle else self._cached_query.predicates  
         while 1:
-            rows = cursor.fetchmany(GET_ITERATOR_CHUNK_SIZE)
+            rows = cursor.fetchmany(CHUNK_SIZE)
             if not rows:
                 raise StopIteration
             for row in rows:
