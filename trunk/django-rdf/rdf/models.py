@@ -147,8 +147,8 @@ class Namespace(Model):
     def __hash__(self):
         return hash(self.code.lower()) # IGNORE:E1101
 
-    def save(self, raw=False):
-        super(self.__class__, self).save(raw)
+    def save(self):
+        super(self.__class__, self).save()
         dispatcher.send(signal=self.post_save, sender=self.__class__, instance=self)
 
     def __getname(self):
@@ -298,7 +298,7 @@ class Concept(Model):
     def __unicode__(self):
         return unicode(self.resource)
 
-    def save(self, raw=False):
+    def save(self):
         # Check that the model name refers to a real model:
         model_exists = False
         for m in get_models():
@@ -308,7 +308,7 @@ class Concept(Model):
         assert model_exists, \
             'type must be associated with a real model, not %s' % self.model_name
         # Save, signal and... done:
-        super(self.__class__, self).save(raw)
+        super(self.__class__, self).save()
         dispatcher.send(signal=self.post_save, sender=self.__class__, instance=self)
 
     def __getnamespace(self):
@@ -577,8 +577,8 @@ class Predicate(Model):
     def __hash__(self):
         return hash(self.name.lower()) # IGNORE:E1101
 
-    def save(self, raw=False):
-        super(self.__class__, self).save(raw)
+    def save(self):
+        super(self.__class__, self).save()
         dispatcher.send(signal=self.post_save, sender=self.__class__, instance=self)
     
     def __getnamespace(self):
@@ -785,11 +785,11 @@ class _SpanSegment(Model):
 
     objects = Manager()
     
-    def save(self, raw=False):
+    def save(self):
         if self.predicate.span: # IGNORE:E1101
             raise Exception('Invalid span - contains another span (%s)' % self.predicate)
         else:
-            super(_SpanSegment, self).save(raw)
+            super(_SpanSegment, self).save()
             
     def __unicode__(self):
         return u' '.join((self.span.code, self.predicate.code, unicode(self.ordinal))) # IGNORE:E1101
@@ -852,16 +852,16 @@ class Statement(Model):
         if needs_object:
             self.__object = self._locate_and_assign_object(object_values)
 
-    def save(self, raw=False):
+    def save(self):
         save_object_required = \
             self.pk is None and \
             hasattr(self, '_Statement__object') and self.__object is not None and \
             (not hasattr(self, 'object_resource') or self.object_resource is None)
-        super(self.__class__, self).save(raw)
+        super(self.__class__, self).save()
         if save_object_required:
             o = self.__object
             o.statement = self
-            o.save(raw) # IGNORE:E1103
+            o.save() # IGNORE:E1103
 
     def __getobject(self):
         if not hasattr(self, '_Statement__object'):
